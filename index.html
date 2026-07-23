@@ -9,12 +9,10 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 <!-- PRELOADER -->
 <div id="preloader">
   <div id="preloader-text">RAJESH M E&I ENGINEER</div>
 </div>
-
 <header class="nav">
   <div class="nav-inner">
     <div class="nav-logo">RAJESH<span>.M</span></div>
@@ -27,7 +25,6 @@
     </nav>
   </div>
 </header>
-
 <section class="hero">
   <canvas id="hero-canvas"></canvas>
   <div class="hero-fade"></div>
@@ -48,15 +45,14 @@
       <line x1="0" y1="52" x2="1000" y2="52" stroke="#2A3339" stroke-width="1"/>
       <path class="trace-path" d="M0,52 L120,52 C160,52 170,8 210,8 C250,8 260,44 300,44 C330,44 336,58 360,58 C380,58 384,50 400,50 L1000,50" />
     </svg>
-    <div class="trace-label">Step response — quarter decay ratio</div>
+    
   </div>
 </div>
-
 <section id="about">
   <div class="wrap">
     <div class="section-head reveal">
       <div class="eyebrow">About</div>
-      <h2>Instrumentation is the language; automation is the sentence.</h2>
+      <h2>Learning Today. Transforming Tomorrow's Industrial Automation.</h2>
       <p>Grounded in measurement fundamentals, comfortable moving up the stack to control logic and optimization.</p>
     </div>
     <div class="about-grid">
@@ -73,7 +69,6 @@
           <div class="meta">Tirunelveli District Govt. Model School · 2021–2023 · 88.16%</div>
         </div>
       </div>
-
       <div class="skills-panel reveal">
         <h3>Technical Stack</h3>
         <div class="skill-group">
@@ -125,17 +120,14 @@
     </div>
   </div>
 </section>
-
 <div class="trace-divider" id="trace2">
   <div class="wrap">
     <svg viewBox="0 0 1000 70" preserveAspectRatio="none">
       <line x1="0" y1="52" x2="1000" y2="52" stroke="#2A3339" stroke-width="1"/>
       <path class="trace-path" d="M0,52 L120,52 C160,52 170,8 210,8 C250,8 260,44 300,44 C330,44 336,58 360,58 C380,58 384,50 400,50 L1000,50" />
     </svg>
-    <div class="trace-label">Real-time process log</div>
   </div>
 </div>
-
 <section id="experience">
   <div class="wrap">
     <div class="section-head reveal">
@@ -245,11 +237,9 @@
         <p>Health monitoring system tracking temperature, heart rate, BMI, and distance using TMP36, HC-SR04, an I2C LCD, buzzer, and servo — programmed in Embedded C with multiple operating modes and abnormal-condition alerts.</p>
         <div class="proj-stack"><span>Arduino</span><span>TMP36</span><span>HC-SR04</span><span>Embedded C</span></div>
       </div>
-
     </div>
   </div>
 </section>
-
 <div class="trace-divider" id="trace4">
   <div class="wrap">
     <svg viewBox="0 0 1000 70" preserveAspectRatio="none">
@@ -259,7 +249,6 @@
     <div class="trace-label">Channel open</div>
   </div>
 </div>
-
 <section id="contact">
   <div class="wrap">
     <div class="section-head reveal">
@@ -292,11 +281,9 @@
     </div>
   </div>
 </section>
-
 <footer>
   Rajesh M · Electronics &amp; Instrumentation Engineering · MIT Campus, Anna University Chennai
 </footer>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 // ---------- Scroll reveal ----------
@@ -307,13 +294,11 @@ const io = new IntersectionObserver((entries)=>{
   });
 }, {threshold:0.15});
 revealEls.forEach(el=>io.observe(el));
-
 // ---------- Mobile nav ----------
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
 navToggle.addEventListener('click', ()=> navLinks.classList.toggle('open'));
 navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>navLinks.classList.remove('open')));
-
 // ---------- Project filter ----------
 const tabs = document.querySelectorAll('.proj-tab');
 const cards = document.querySelectorAll('.proj-card');
@@ -328,7 +313,6 @@ tabs.forEach(tab=>{
     });
   });
 });
-
 // ---------- Card tilt ----------
 cards.forEach(card=>{
   card.addEventListener('mousemove', (e)=>{
@@ -339,26 +323,20 @@ cards.forEach(card=>{
   });
   card.addEventListener('mouseleave', ()=>{ card.style.transform = 'rotateY(0) rotateX(0)'; });
 });
-
 // ---------- Three.js hero: block-diagram wireframe reacting to mouse ----------
 (function(){
   const canvas = document.getElementById('hero-canvas');
   if(!window.THREE || !canvas) return;
-
   let width = canvas.clientWidth || window.innerWidth;
   let height = canvas.clientHeight || window.innerHeight;
-
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(55, width/height, 0.1, 100);
   camera.position.z = 16;
-
   const renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true});
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.setSize(width, height);
-
   const group = new THREE.Group();
   scene.add(group);
-
   // Grid of "block diagram" nodes: control blocks connected by feedback/feedforward lines
   const NODES = 42;
   const nodePositions = [];
@@ -372,7 +350,6 @@ cards.forEach(card=>{
       nodePositions.push(new THREE.Vector3(x,y,z));
     }
   }
-
   const nodeGeo = new THREE.SphereGeometry(0.06, 8, 8);
   const nodeMatCyan = new THREE.MeshBasicMaterial({color:0x54D6E8, transparent:true, opacity:0.85});
   const nodeMatAmber = new THREE.MeshBasicMaterial({color:0xF2A93B, transparent:true, opacity:0.7});
@@ -384,7 +361,6 @@ cards.forEach(card=>{
     group.add(m);
     nodeMeshes.push(m);
   });
-
   // Connect nearby nodes with lines (feedback loop look)
   const lineMat = new THREE.LineBasicMaterial({color:0x2E4952, transparent:true, opacity:0.55});
   const linePositions = [];
@@ -419,7 +395,6 @@ cards.forEach(card=>{
     renderer.setSize(width, height);
   }
   window.addEventListener('resize', onResize);
-
   let raf;
   const clock = new THREE.Clock();
   function animate(){
@@ -444,17 +419,14 @@ cards.forEach(card=>{
   });
 })();
 </script>
-
 <script>
 // ---------- Preloader SplitText Animation ----------
 document.addEventListener("DOMContentLoaded", () => {
   const preloader = document.getElementById('preloader');
   const textEl = document.getElementById('preloader-text');
-  
   // 1. Get the text and clear the container
   const text = textEl.textContent;
   textEl.textContent = ''; 
-
   // 2. Split text into individual span elements
   text.split('').forEach((char, i) => {
     const span = document.createElement('span');
@@ -465,7 +437,6 @@ document.addEventListener("DOMContentLoaded", () => {
     span.style.transitionDelay = `${i * 50}ms`; 
     textEl.appendChild(span);
   });
-
   // 3. Trigger the animation shortly after the DOM loads
   setTimeout(() => {
     const chars = document.querySelectorAll('.split-char');
@@ -473,16 +444,13 @@ document.addEventListener("DOMContentLoaded", () => {
       char.style.opacity = '1';
       char.style.transform = 'translateY(0)'; // Matches your 'to' prop
     });
-
     // 4. Calculate when the animation finishes
     // Total time = (Number of chars * 50ms) + 1250ms base duration
     const totalAnimTime = (text.length * 50) + 1250;
-
     // 5. Fade out the preloader screen after text finishes + a 400ms pause
     setTimeout(() => {
       preloader.style.opacity = '0';
       preloader.style.visibility = 'hidden';
-      
       // Optional: Remove it entirely from the DOM so it doesn't block clicks
       setTimeout(() => preloader.remove(), 800); 
     }, totalAnimTime + 400);
@@ -490,6 +458,5 @@ document.addEventListener("DOMContentLoaded", () => {
   }, 150); // Small initial buffer before starting animation
 });
 </script>
-
 </body>
 </html>
