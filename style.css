@@ -1,20 +1,20 @@
 :root {
-  /* Sleek, neutral dark mode palette */
-  --bg-0: #0A0A0A;
-  --bg-1: #121212;
-  --bg-2: #1A1A1A;
-  --line: #2A2A2A;
+  /* Professional Light/Neutral Palette */
+  --bg-0: #FFFFFF;        /* Main background */
+  --bg-1: #F8FAFC;        /* Soft background for cards/panels */
+  --bg-2: #F1F5F9;        /* Hover states and chips */
+  --line: #E2E8F0;        /* Borders and dividers */
   
-  /* High-contrast typography */
-  --ink-0: #FAFAFA;
-  --ink-1: #A1A1AA;
-  --ink-2: #71717A;
+  /* High-contrast typography for light mode */
+  --ink-0: #0F172A;       /* Primary text / Headings */
+  --ink-1: #475569;       /* Secondary text / Paragraphs */
+  --ink-2: #64748B;       /* Tertiary text / Meta info */
   
-  /* Professional branding colors (Royal & Sky Blue) */
-  --primary: #2563EB; 
-  --accent: #38BDF8; 
+  /* Professional branding colors */
+  --primary: #2563EB;     /* Royal Blue */
+  --accent: #0284C7;      /* Ocean Blue */
   --primary-dim: rgba(37, 99, 235, 0.12);
-  --accent-dim: rgba(56, 189, 248, 0.12);
+  --accent-dim: rgba(2, 132, 199, 0.12);
   
   /* Typography variables */
   --display: 'Space Grotesk', sans-serif;
@@ -77,7 +77,7 @@ a {
   align-items: center;
   gap: 12px;
   margin-bottom: 16px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .eyebrow::before {
@@ -132,7 +132,7 @@ header.nav {
   left: 0;
   right: 0;
   z-index: 50;
-  background: rgba(10, 10, 10, 0.8);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
 }
@@ -171,7 +171,7 @@ header.nav {
 }
 
 .nav-links a:hover {
-  color: var(--ink-0);
+  color: var(--primary);
 }
 
 .nav-toggle {
@@ -189,7 +189,7 @@ header.nav {
     top: 60px;
     right: 0;
     left: 0;
-    background: var(--bg-1);
+    background: var(--bg-0);
     flex-direction: column;
     padding: 24px 28px;
     gap: 20px;
@@ -219,14 +219,14 @@ header.nav {
   position: absolute;
   inset: 0;
   z-index: 0;
-  opacity: 0.6;
+  opacity: 0.4;
 }
 
 .hero-fade {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(180deg, rgba(10, 10, 10, 0.2) 0%, rgba(10, 10, 10, 0.7) 70%, var(--bg-0) 100%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.8) 70%, var(--bg-0) 100%);
 }
 
 .hero-content {
@@ -289,8 +289,9 @@ header.nav {
 }
 
 .btn-primary:hover {
-  background: transparent;
-  color: var(--ink-0);
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--bg-0);
 }
 
 .btn-ghost {
@@ -302,44 +303,10 @@ header.nav {
 .btn-ghost:hover {
   border-color: var(--primary);
   color: var(--primary);
+  background: var(--bg-0);
 }
 
-/* SCOPE TRACE DIVIDER */
-.trace-divider {
-  position: relative;
-  padding: 60px 0;
-  overflow: hidden;
-}
-
-.trace-divider svg {
-  width: 100%;
-  height: 70px;
-  display: block;
-}
-
-.trace-path {
-  fill: none;
-  stroke: var(--primary);
-  stroke-width: 2;
-  stroke-dasharray: 900;
-  stroke-dashoffset: 900;
-  transition: stroke-dashoffset 1.8s cubic-bezier(.2, .7, .2, 1);
-}
-
-.trace-divider.in-view .trace-path {
-  stroke-dashoffset: 0;
-}
-
-.trace-label {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--ink-2);
-  text-align: center;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-top: 12px;
-}
-
+/* GENERAL SECTIONS */
 section {
   padding: 100px 0;
 }
@@ -442,6 +409,7 @@ section {
   color: var(--ink-2);
   font-family: var(--mono);
   margin-bottom: 10px;
+  font-weight: 500;
 }
 
 .chip-row {
@@ -456,7 +424,7 @@ section {
   border: 1px solid var(--line);
   border-radius: 6px;
   color: var(--ink-1);
-  background: var(--bg-2);
+  background: var(--bg-0);
   transition: all 0.2s ease;
 }
 
@@ -498,6 +466,7 @@ section {
   color: var(--accent);
   margin-bottom: 8px;
   letter-spacing: 0.04em;
+  font-weight: 500;
 }
 
 .tl-org {
@@ -533,7 +502,7 @@ section {
   border-radius: 6px;
   color: var(--ink-2);
   cursor: pointer;
-  background: var(--bg-1);
+  background: var(--bg-0);
   transition: all 0.25s ease;
 }
 
@@ -555,7 +524,7 @@ section {
 
 .proj-card {
   position: relative;
-  background: var(--bg-1);
+  background: var(--bg-0);
   border: 1px solid var(--line);
   border-radius: 12px;
   padding: 32px;
@@ -570,7 +539,7 @@ section {
 .proj-card:hover {
   border-color: var(--primary);
   transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08); /* Soft shadow for light backgrounds */
 }
 
 .proj-tag {
@@ -581,6 +550,7 @@ section {
   text-transform: uppercase;
   margin-bottom: 14px;
   display: inline-block;
+  font-weight: 600;
 }
 
 .proj-card h3 {
@@ -604,7 +574,7 @@ section {
   font-family: var(--mono);
   font-size: 12px;
   color: var(--ink-2);
-  background: var(--bg-2);
+  background: var(--bg-1);
   border: 1px solid var(--line);
   padding: 4px 12px;
   border-radius: 6px;
@@ -672,6 +642,7 @@ section {
   text-transform: uppercase;
   letter-spacing: 0.06em;
   margin-bottom: 4px;
+  font-weight: 500;
 }
 
 .contact-item .val {
