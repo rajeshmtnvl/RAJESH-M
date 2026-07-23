@@ -16,12 +16,7 @@
   --primary-dim: rgba(37, 99, 235, 0.12);
   --accent-dim: rgba(2, 132, 199, 0.12);
   
-  /* Typography variables */
-  --display: 'Space Grotesk', sans-serif;
-  --body: 'Inter', sans-serif;
-  --mono: 'IBM Plex Mono', monospace;
-}
-
+ 
 * {
   box-sizing: border-box;
   margin: 0;
